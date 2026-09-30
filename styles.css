@@ -1,0 +1,4 @@
+/* Compatibility entry point for older pages. New pages should load base.css
+   and their section stylesheet directly. */
+@import url("assets/css/base.css");
+@import url("assets/css/home-companies.css");
