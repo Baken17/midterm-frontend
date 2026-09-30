@@ -1,0 +1,255 @@
+.page-hero-profile {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 3.5rem 0 2.5rem;
+}
+
+.profile-header-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-background);
+  padding: 1.75rem;
+}
+
+.profile-avatar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.profile-avatar {
+  display: inline-grid;
+  width: 72px;
+  height: 72px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.profile-info h1 {
+  margin-bottom: 0.25rem;
+  font-size: 1.75rem;
+}
+
+.profile-info p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.content-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(23, 32, 42, 0.03);
+}
+
+.card-title-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #edf0f4;
+  padding-bottom: 0.75rem;
+}
+
+.card-title-group h2,
+.card-title-group h3 {
+  margin-bottom: 0;
+  font-size: 1.15rem;
+}
+
+.info-list {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.info-label {
+  color: var(--color-muted);
+}
+
+.info-value {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.skill-tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.progress-bar-wrap {
+  margin: 1rem 0 1.25rem;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.progress-track {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e9edf3;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-primary);
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.roadmap-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.25rem;
+  align-items: start;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: 1.25rem 1.5rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.roadmap-step-badge {
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.roadmap-card.completed .roadmap-step-badge {
+  background: var(--color-success-soft);
+  color: var(--color-success);
+}
+
+.roadmap-content h3 {
+  margin-bottom: 0.35rem;
+  font-size: 1.05rem;
+}
+
+.roadmap-content p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+}
+
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.skill-matrix-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.skill-matrix-table caption {
+  caption-side: top;
+  margin-bottom: 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.skill-matrix-table th,
+.skill-matrix-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #edf0f4;
+  vertical-align: middle;
+}
+
+.skill-matrix-table thead th {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.skill-matrix-table tbody th {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.about-text {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+@media (max-width: 991.98px) {
+  .roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .profile-header-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .roadmap-card {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .roadmap-step-badge {
+    width: 36px;
+    height: 36px;
+  }
+}
