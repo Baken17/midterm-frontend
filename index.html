@@ -8,7 +8,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@600;700&amp;display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/home-companies.css">
@@ -23,7 +23,15 @@
           <span class="brand-symbol" aria-hidden="true">J</span>
           <span>JOBLY</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNav" aria-controls="primaryNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#primaryNav"
+          aria-controls="primaryNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="primaryNav">
@@ -116,7 +124,11 @@
           <div class="col-lg-4 col-md-6">
             <article class="job-card h-100">
               <div class="job-card-top"><span class="company-logo logo-acme" aria-hidden="true">AC</span><span class="match-badge match-high">82% match</span></div>
-              <div><p class="company-name">Acme Corp</p><h3><a href="job-details.html">Frontend Developer</a></h3><p class="job-meta"><span>London, UK</span><span>Full-time</span></p></div>
+              <div>
+                <p class="company-name">Acme Corp</p>
+                <h3><a href="job-details.html">Frontend Developer</a></h3>
+                <p class="job-meta"><span>London, UK</span><span>Full-time</span></p>
+              </div>
               <div class="card-skills"><span>React</span><span>CSS</span><span>JavaScript</span></div>
               <a class="card-action" href="job-details.html" aria-label="View Frontend Developer at Acme Corp">View role</a>
             </article>
@@ -124,17 +136,25 @@
           <div class="col-lg-4 col-md-6">
             <article class="job-card h-100">
               <div class="job-card-top"><span class="company-logo logo-dataco" aria-hidden="true">DC</span><span class="match-badge match-medium">74% match</span></div>
-              <div><p class="company-name">DataCo Ltd</p><h3><a href="job-details.html">Data Analyst</a></h3><p class="job-meta"><span>Remote</span><span>Part-time</span></p></div>
+              <div>
+                <p class="company-name">DataCo Ltd</p>
+                <h3><a href="jobs.html?q=Data+Analyst">Data Analyst</a></h3>
+                <p class="job-meta"><span>Remote</span><span>Part-time</span></p>
+              </div>
               <div class="card-skills"><span>SQL</span><span>Python</span><span>Tableau</span></div>
-              <a class="card-action" href="job-details.html" aria-label="View Data Analyst at DataCo Ltd">View role</a>
+              <a class="card-action" href="jobs.html?q=Data+Analyst" aria-label="Find Data Analyst at DataCo Ltd in the jobs list">Find this role</a>
             </article>
           </div>
           <div class="col-lg-4 col-md-6">
             <article class="job-card h-100">
               <div class="job-card-top"><span class="company-logo logo-studio" aria-hidden="true">SB</span><span class="match-badge match-high">91% match</span></div>
-              <div><p class="company-name">Studio Blue</p><h3><a href="job-details.html">UX Designer</a></h3><p class="job-meta"><span>Manchester, UK</span><span>Contract</span></p></div>
+              <div>
+                <p class="company-name">Studio Blue</p>
+                <h3><a href="jobs.html?q=UX+Designer">UX Designer</a></h3>
+                <p class="job-meta"><span>Manchester, UK</span><span>Contract</span></p>
+              </div>
               <div class="card-skills"><span>Figma</span><span>Research</span><span>Agile</span></div>
-              <a class="card-action" href="job-details.html" aria-label="View UX Designer at Studio Blue">View role</a>
+              <a class="card-action" href="jobs.html?q=UX+Designer" aria-label="Find UX Designer at Studio Blue in the jobs list">Find this role</a>
             </article>
           </div>
         </div>
@@ -178,13 +198,23 @@
 
   <footer class="site-footer">
     <div class="container site-container footer-grid">
-      <div><a class="brand-mark footer-brand" href="index.html" aria-label="Jobly home"><span class="brand-symbol" aria-hidden="true">J</span><span>JOBLY</span></a><p>Skill-first job search for early careers.</p></div>
-      <nav class="footer-nav" aria-label="Footer navigation"><a href="jobs.html">Jobs</a><a href="companies.html">Companies</a><a href="career-map.html">Career Map</a><a href="profile.html">Profile</a></nav>
+      <div>
+        <a class="brand-mark footer-brand" href="index.html" aria-label="Jobly home">
+          <span class="brand-symbol" aria-hidden="true">J</span><span>JOBLY</span>
+        </a>
+        <p>Skill-first job search for early careers.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="jobs.html">Jobs</a>
+        <a href="companies.html">Companies</a>
+        <a href="career-map.html">Career Map</a>
+        <a href="profile.html">Profile</a>
+      </nav>
       <p class="copyright">© 2026 Jobly. Student project.</p>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=20261004"></script>
 </body>
 </html>
