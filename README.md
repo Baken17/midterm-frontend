@@ -1,12 +1,16 @@
 # Jobly - Skill-First Career & Learning Platform
 
-Jobly is a frontend web application designed for early-career software developers. The platform shifts job discovery from traditional experience-based filtering to skill-first matching, enabling users to evaluate competencies against job specifications and follow structured learning roadmaps.
+Jobly is a responsive, multi-page job search website for early-career professionals. In addition to browsing vacancies and companies, users can compare their skills with a target role and follow a practical learning roadmap.
+
+## Live Demo
+
+[Open Jobly on GitHub Pages](https://baken17.github.io/midterm-frontend/)
 
 ---
 
 ## Key Features
 
-* **Skill Match & Analysis**: Computes readiness percentages by comparing candidate competencies with target job requirements.
+* **Skill Match & Analysis**: Shows readiness percentages by comparing candidate competencies with target job requirements.
 * **Detailed Skill Matrix**: Evaluates individual skills across proficiency levels, highlighting gaps and recommended actions.
 * **Learning Roadmap**: Visualizes step-by-step skill acquisition sequences with status tracking (`Completed`, `In Progress`, `Next Up`).
 * **Profile Management**: Displays verified competencies, target direction, personal details, and saved job postings.
@@ -36,7 +40,8 @@ Jobly is a frontend web application designed for early-career software developer
 │   ├── images/                 # SVG icons and visual assets
 │   └── js/
 │       ├── jobs.js             # Client-side interactive logic for jobs listing
-│       └── main.js             # Global client-side interactions
+│       ├── main.js             # Shared navigation and company search interactions
+│       └── profile.js          # Profile editing interactions
 ├── career-map.html             # Skill gap analysis and visual roadmap
 ├── companies.html              # Employer directory
 ├── index.html                  # Landing page
@@ -62,4 +67,6 @@ Jobly is a frontend web application designed for early-career software developer
 This is a static client-side web application and requires no build tools or package managers.
 
 1. Clone or download the repository.
-2. Open `index.html` in any modern web browser, or launch it using a local server extension (e.g., Live Server for VS Code).
+2. Open `index.html` in any modern web browser, or launch it using a local server extension such as Live Server.
+
+No build step, package manager, or backend is required.

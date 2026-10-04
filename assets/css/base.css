@@ -459,7 +459,7 @@ input {
 
 @media (max-width: 575.98px) {
   .site-container {
-    width: min(100% - 1.25rem, var(--container-width));
+    width: min(100% - 1.5rem, var(--container-width));
   }
 
   .section-block {

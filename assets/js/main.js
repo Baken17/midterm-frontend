@@ -1,6 +1,17 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", () => {
+  const navToggle = document.querySelector(".navbar-toggler");
+  const navMenu = document.querySelector("#primaryNav");
+
+  if (navToggle && navMenu) {
+    navToggle.addEventListener("click", () => {
+      if (typeof bootstrap !== "undefined") return;
+      const isOpen = navMenu.classList.toggle("show");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+
   const companyForm = document.querySelector("#company-search-form");
   const companyInput = document.querySelector("#company-search");
   const companyItems = [...document.querySelectorAll(".company-item")];

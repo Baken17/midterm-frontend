@@ -253,3 +253,7 @@
     height: 36px;
   }
 }
+
+.profile-edit-modal.show {
+  background: rgb(35 34 31 / 45%);
+}

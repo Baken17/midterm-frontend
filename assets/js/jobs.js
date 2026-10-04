@@ -1,5 +1,16 @@
 "use strict";
 
+const navToggle = document.querySelector(".navbar-toggler");
+const navMenu = document.querySelector("#primaryNav");
+
+if (navToggle && navMenu) {
+  navToggle.addEventListener("click", function () {
+    if (typeof bootstrap !== "undefined") return;
+    const isOpen = navMenu.classList.toggle("show");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+}
+
 const searchForm = document.querySelector("#jobs-search-form");
 const filterForm = document.querySelector("#job-filters");
 
