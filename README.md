@@ -6,6 +6,40 @@ Jobly is a responsive, multi-page job search website for early-career profession
 
 [Open Jobly on GitHub Pages](https://baken17.github.io/midterm-frontend/)
 
+## Endterm — participant 1 (Home and Companies)
+
+Companies now renders cards from `assets/js/companies-data.js`. Two arrays
+hold employer records and industry options. Existing company IDs and Home GET
+parameters remain compatible with Jobs. Search, industry filtering, sorting,
+reset and expandable details are implemented in `main.js`.
+
+jQuery 3.7.1 is loaded on Companies. Delegated click/keydown handlers survive
+card replacement; ID/class selectors, closest/find traversal and slideDown/
+slideUp effects support the details interaction. Native fallback works if the CDN
+is unavailable. Reduced-motion preferences are respected.
+
+### Test participant 1
+
+1. Open Companies: six cards and six results should appear.
+2. Search DESIGN: Studio Blue appears; surrounding spaces do not affect matching.
+3. Select Finance while DESIGN remains: no results. Clear search resets all controls.
+4. Select Technology: Acme appears. Reset restores six companies.
+5. Choose Name A–Z: cards sort alphabetically.
+6. Open details, close them, and press Escape while the toggle is focused.
+7. Repeat searches and then open details: delegated handlers must still work.
+8. Follow a company link: Jobs receives the existing company ID.
+9. Search from Home: Jobs receives q and location.
+10. Check keyboard navigation and narrow screens; inspect the console for errors.
+
+### Integration status
+
+This increment covers participant 1 only. Participant 2 owns dynamic vacancies,
+shared saved-job storage and substantial application-form validation. Participant
+3 owns persistent profile, skills and the computed career map. The whole-project
+endterm requirements are not yet claimed complete. Employer profiles are sample
+data; existing skill percentages and platform statistics are demonstrations.
+Add the actual group member names before final submission.
+
 ---
 
 ## Key Features

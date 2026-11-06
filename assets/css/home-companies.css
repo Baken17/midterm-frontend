@@ -621,3 +621,27 @@
     align-items: flex-start;
   }
 }
+.company-controls {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.company-controls .form-select {
+  width: auto;
+  max-width: 100%;
+}
+
+.company-details-toggle {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
+.company-details {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-soft);
+}
