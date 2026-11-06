@@ -11,7 +11,6 @@ if (navToggle && navMenu) {
   });
 }
 
-// Один файл подключён на двух страницах. Проверяем, какие элементы есть.
 const searchForm = document.querySelector("#jobs-search-form");
 const filterForm = document.querySelector("#job-filters");
 
@@ -24,13 +23,11 @@ if (searchForm && filterForm) {
   const companyMessage = document.querySelector("#company-filter");
   const clearButton = document.querySelector("#clear-filters");
 
-  // Home и Companies передают параметры через адрес страницы.
   const params = new URLSearchParams(window.location.search);
   searchInput.value = params.get("q") || "";
   locationInput.value = params.get("location") || "";
   let companyFilter = params.get("company") || "";
 
-  // Собираем значения отмеченных checkbox одной группы.
   function getSelectedValues(groupName) {
     const checkboxes = filterForm.querySelectorAll('input[name="' + groupName + '"]:checked');
     const values = [];
@@ -60,7 +57,6 @@ if (searchForm && filterForm) {
 
       const matchesSearch = searchableText.includes(searchText);
       const matchesLocationText = jobLocation.includes(locationText);
-      // Пустая группа пропускает все вакансии. Несколько отметок работают как «или».
       const matchesLocation = locations.length === 0 || locations.includes(card.dataset.location);
       const matchesCategory = categories.length === 0 || categories.includes(card.dataset.category);
       const matchesType = jobTypes.length === 0 || jobTypes.includes(card.dataset.type);
@@ -106,7 +102,6 @@ if (searchForm && filterForm) {
   filterJobs();
 }
 
-// Сохранение работает как простой переключатель на текущей странице.
 const saveButton = document.querySelector("#save-job");
 if (saveButton) {
   let isJobSaved = false;
@@ -122,7 +117,6 @@ if (saveButton) {
   });
 }
 
-// Браузер проверяет required и type="email" до события submit.
 const applicationForm = document.querySelector("#application-form");
 if (applicationForm) {
   const applicationMessage = document.querySelector("#application-message");
