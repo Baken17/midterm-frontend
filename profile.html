@@ -105,17 +105,9 @@
                 <a class="text-link" href="career-map.html">Skill Match Analysis</a>
               </div>
               <p class="section-label">Verified Competencies</p>
-              <div class="skill-tag-group mb-4">
-                <span class="skill-chip skill-matched">HTML &amp; CSS</span>
-                <span class="skill-chip skill-matched">React</span>
-                <span class="skill-chip skill-matched">Communication</span>
-                <span class="skill-chip skill-matched">Responsive Design</span>
-              </div>
+              <div class="skill-tag-group mb-4" id="verified-skills-group"></div>
               <p class="section-label">Skills to Develop</p>
-              <div class="skill-tag-group">
-                <span class="skill-chip skill-gap">JavaScript</span>
-                <span class="skill-chip skill-missing">Git &amp; GitHub</span>
-              </div>
+              <div class="skill-tag-group" id="gap-skills-group"></div>
             </div>
           </div>
 
@@ -125,32 +117,7 @@
                 <h2>Saved Jobs</h2>
                 <a class="text-link" href="jobs.html">View All Jobs</a>
               </div>
-              <div class="row g-4">
-                <div class="col-md-6">
-                  <article class="job-card h-100">
-                    <div class="job-card-top"><span class="company-logo logo-acme" aria-hidden="true">AC</span><span class="match-badge match-high">82% match</span></div>
-                    <div>
-                      <p class="company-name">Acme Corp</p>
-                      <h3><a href="job-details.html">Frontend Developer</a></h3>
-                      <p class="job-meta"><span>London, UK</span><span>Full-time</span></p>
-                    </div>
-                    <div class="card-skills"><span>React</span><span>CSS</span><span>JavaScript</span></div>
-                    <a class="card-action" href="job-details.html" aria-label="View Frontend Developer at Acme Corp">View role</a>
-                  </article>
-                </div>
-                <div class="col-md-6">
-                  <article class="job-card h-100">
-                    <div class="job-card-top"><span class="company-logo logo-studio" aria-hidden="true">SB</span><span class="match-badge match-high">91% match</span></div>
-                    <div>
-                      <p class="company-name">Studio Blue</p>
-                      <h3><a href="jobs.html?q=UX+Designer">UX Designer</a></h3>
-                      <p class="job-meta"><span>Manchester, UK</span><span>Contract</span></p>
-                    </div>
-                    <div class="card-skills"><span>Figma</span><span>Research</span><span>Agile</span></div>
-                    <a class="card-action" href="jobs.html?q=UX+Designer" aria-label="Find UX Designer at Studio Blue in the jobs list">Find this role</a>
-                  </article>
-                </div>
-              </div>
+              <div class="row g-4" id="saved-jobs-container"></div>
             </div>
           </div>
         </div>
@@ -216,7 +183,10 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/main.js?v=20261004"></script>
-  <script src="assets/js/profile.js?v=20261004-2"></script>
+  <script src="assets/js/companies-data.js"></script>
+  <script src="assets/js/jobs-data.js"></script>
+  <script src="assets/js/saved-jobs.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/profile.js"></script>
 </body>
 </html>
