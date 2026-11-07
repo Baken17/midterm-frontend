@@ -17,6 +17,52 @@ const filterForm = document.querySelector("#job-filters");
 if (searchForm && filterForm) {
   const searchInput = document.querySelector("#job-search");
   const locationInput = document.querySelector("#location-search");
+  const jobList = document.querySelector("#job-list");
+const template = document.querySelector("#job-card-template");
+
+for (const job of window.JoblyJobs) {
+  const card = template.content.firstElementChild.cloneNode(true);
+
+  const company = window.JoblyCompanies.find(function (item) {
+    return item.id === job.companyId;
+  });
+
+  card.dataset.company = job.companyId;
+  card.dataset.location = job.location.split(",")[0].trim().toLowerCase();
+  card.dataset.type = job.type.toLowerCase();
+  card.dataset.category = job.category;
+
+  card.querySelector(".company-logo").src =
+    "assets/images/company-logos/" + job.companyId + ".svg";
+
+  const badge = card.querySelector(".match-badge");
+  badge.textContent = job.exampleMatch + "% match";
+  badge.classList.add(job.exampleMatch >= 80 ? "match-high" : "match-medium");
+
+  card.querySelector(".company-name").textContent = company ? company.name : job.companyId;
+  card.querySelector("h3").textContent = job.title;
+  card.querySelector(".job-location").textContent = job.location;
+  card.querySelector(".job-type").textContent = job.type;
+  card.querySelector(".job-summary").textContent = job.description;
+  card.querySelector(".job-salary").textContent = job.salary;
+
+  for (const skill of job.skills) {
+    const tag = document.createElement("span");
+    tag.textContent = skill;
+    card.querySelector(".card-skills").append(tag);
+  }
+
+  const link = card.querySelector(".job-link");
+  if (job.id === "frontend-developer") {
+    link.href = "job-details.html";
+    link.textContent = "View details";
+  } else {
+    link.href = "jobs.html?q=" + encodeURIComponent(job.title);
+    link.textContent = "View in jobs";
+  }
+
+  jobList.append(card);
+}
   const jobCards = document.querySelectorAll(".jobs-list .job-card");
   const resultCount = document.querySelector("#job-count");
   const emptyMessage = document.querySelector("#jobs-empty");
