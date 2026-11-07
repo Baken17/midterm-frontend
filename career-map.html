@@ -66,26 +66,17 @@
                 <span class="match-badge match-high">82% Overall Match</span>
               </div>
               <p class="text-muted mb-4">
-                Based on your profile, you already meet four core requirements. JavaScript and Git &amp; GitHub are the
-                two remaining skills to strengthen for Frontend Developer roles.
+                Match calculation formula: (Matched user competencies / Target job required skills) * 100%.
               </p>
 
               <div class="mb-4">
                 <p class="section-label">Matched Skills</p>
-                <div class="skill-tag-group">
-                  <span class="skill-chip skill-matched">HTML &amp; CSS</span>
-                  <span class="skill-chip skill-matched">React</span>
-                  <span class="skill-chip skill-matched">Communication</span>
-                  <span class="skill-chip skill-matched">Responsive Design</span>
-                </div>
+                <div class="skill-tag-group" id="career-matched-skills"></div>
               </div>
 
               <div>
                 <p class="section-label">Skills to Improve</p>
-                <div class="skill-tag-group">
-                  <span class="skill-chip skill-gap">JavaScript</span>
-                  <span class="skill-chip skill-missing">Git &amp; GitHub</span>
-                </div>
+                <div class="skill-tag-group" id="career-improve-skills"></div>
               </div>
             </div>
           </div>
@@ -97,14 +88,14 @@
               </div>
               <div class="progress-bar-wrap">
                 <div class="progress-header">
-                  <span>Frontend Readiness</span>
+                  <span>Target Readiness</span>
                   <span>82%</span>
                 </div>
                 <div class="progress-track">
                   <div class="progress-fill" style="width: 82%;"></div>
                 </div>
               </div>
-              <p class="text-muted" style="font-size: 0.85rem;">Complete the two remaining roadmap steps to keep improving your match score toward 100%.</p>
+              <p class="text-muted" style="font-size: 0.85rem;">Complete the remaining roadmap steps to keep improving your match score toward 100%.</p>
               <a class="btn btn-primary w-100 mt-auto" href="jobs.html">View Matching Jobs</a>
             </div>
           </div>
@@ -126,36 +117,7 @@
                   <th scope="col">Recommended Action</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">HTML &amp; CSS</th>
-                  <td>Advanced</td>
-                  <td>Advanced</td>
-                  <td><span class="match-badge match-high">None</span></td>
-                  <td>Maintain current proficiency</td>
-                </tr>
-                <tr>
-                  <th scope="row">React</th>
-                  <td>Intermediate</td>
-                  <td>Intermediate</td>
-                  <td><span class="match-badge match-high">None</span></td>
-                  <td>Build portfolio projects</td>
-                </tr>
-                <tr>
-                  <th scope="row">JavaScript</th>
-                  <td>Intermediate</td>
-                  <td>Advanced</td>
-                  <td><span class="match-badge match-medium">Minor Gap</span></td>
-                  <td>Complete Async JS module</td>
-                </tr>
-                <tr>
-                  <th scope="row">Git &amp; GitHub</th>
-                  <td>Beginner</td>
-                  <td>Intermediate</td>
-                  <td><span class="match-badge match-medium">Moderate Gap</span></td>
-                  <td>Take Version Control course</td>
-                </tr>
-              </tbody>
+              <tbody></tbody>
             </table>
           </div>
         </div>
@@ -163,11 +125,11 @@
         <div class="content-card">
           <div class="card-title-group">
             <h2>Learning Roadmap</h2>
-            <span class="section-label">4 Steps Total</span>
+            <span class="section-label">Interactive Steps (Click step to toggle status)</span>
           </div>
 
           <div class="roadmap-grid">
-            <article class="roadmap-card completed">
+            <article class="roadmap-card completed" style="cursor: pointer;">
               <span class="roadmap-step-badge">01</span>
               <div class="roadmap-content">
                 <h3>Core Web Fundamentals</h3>
@@ -176,7 +138,7 @@
               <span class="match-badge match-high">Completed</span>
             </article>
 
-            <article class="roadmap-card completed">
+            <article class="roadmap-card completed" style="cursor: pointer;">
               <span class="roadmap-step-badge">02</span>
               <div class="roadmap-content">
                 <h3>Frontend Library Core</h3>
@@ -185,7 +147,7 @@
               <span class="match-badge match-high">Completed</span>
             </article>
 
-            <article class="roadmap-card">
+            <article class="roadmap-card" style="cursor: pointer;">
               <span class="roadmap-step-badge">03</span>
               <div class="roadmap-content">
                 <h3>JavaScript Depth &amp; Async JS</h3>
@@ -194,7 +156,7 @@
               <span class="match-badge match-medium">In Progress</span>
             </article>
 
-            <article class="roadmap-card">
+            <article class="roadmap-card" style="cursor: pointer;">
               <span class="roadmap-step-badge">04</span>
               <div class="roadmap-content">
                 <h3>Version Control &amp; Team Workflows</h3>
@@ -227,6 +189,10 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/main.js?v=20261004"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/companies-data.js"></script>
+  <script src="assets/js/jobs-data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/career-map.js"></script>
 </body>
 </html>
