@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Browse early-career jobs, compare skill matches, and explore a frontend role on Jobly.">
+  <meta name="description" content="Browse early-career jobs, compare skill matches, and explore roles on Jobly.">
   <title>Jobs | Jobly</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,60 +86,63 @@
           <aside class="col-lg-3" aria-labelledby="filters-title">
             <form id="job-filters" class="jobs-filters">
               <h2 id="filters-title">Filters</h2>
-              <fieldset>
-                <legend>Location</legend>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="location-london" name="location" value="london">
-                  <label class="form-check-label" for="location-london">London</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="location-manchester" name="location" value="manchester">
-                  <label class="form-check-label" for="location-manchester">Manchester</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="location-remote" name="location" value="remote">
-                  <label class="form-check-label" for="location-remote">Remote</label>
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend>Category</legend>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="category-development" name="category" value="development">
-                  <label class="form-check-label" for="category-development">Development</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="category-data" name="category" value="data">
-                  <label class="form-check-label" for="category-data">Data &amp; Analytics</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="category-design" name="category" value="design">
-                  <label class="form-check-label" for="category-design">Design</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="category-finance" name="category" value="finance">
-                  <label class="form-check-label" for="category-finance">Finance</label>
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend>Job Type</legend>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="type-full-time" name="type" value="full-time">
-                  <label class="form-check-label" for="type-full-time">Full-time</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="type-part-time" name="type" value="part-time">
-                  <label class="form-check-label" for="type-part-time">Part-time</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="type-contract" name="type" value="contract">
-                  <label class="form-check-label" for="type-contract">Contract</label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="type-internship" name="type" value="internship">
-                  <label class="form-check-label" for="type-internship">Internship</label>
-                </div>
-              </fieldset>
-              <button class="btn btn-secondary w-100" id="clear-filters" type="button">Clear all filters</button>
+              <button class="btn btn-secondary mb-3 job-section-toggle" id="toggle-filters" type="button" aria-controls="filter-options" aria-expanded="true" hidden>Hide filters</button>
+              <div id="filter-options" class="job-section">
+                <fieldset>
+                  <legend>Location</legend>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="location-london" name="location" value="london">
+                    <label class="form-check-label" for="location-london">London</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="location-manchester" name="location" value="manchester">
+                    <label class="form-check-label" for="location-manchester">Manchester</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="location-remote" name="location" value="remote">
+                    <label class="form-check-label" for="location-remote">Remote</label>
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Category</legend>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="category-development" name="category" value="development">
+                    <label class="form-check-label" for="category-development">Development</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="category-data" name="category" value="data">
+                    <label class="form-check-label" for="category-data">Data &amp; Analytics</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="category-design" name="category" value="design">
+                    <label class="form-check-label" for="category-design">Design</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="category-finance" name="category" value="finance">
+                    <label class="form-check-label" for="category-finance">Finance</label>
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Job Type</legend>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="type-full-time" name="type" value="full-time">
+                    <label class="form-check-label" for="type-full-time">Full-time</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="type-part-time" name="type" value="part-time">
+                    <label class="form-check-label" for="type-part-time">Part-time</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="type-contract" name="type" value="contract">
+                    <label class="form-check-label" for="type-contract">Contract</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="type-internship" name="type" value="internship">
+                    <label class="form-check-label" for="type-internship">Internship</label>
+                  </div>
+                </fieldset>
+                <button class="btn btn-secondary w-100" id="clear-filters" type="button">Clear all filters</button>
+              </div>
             </form>
           </aside>
 
@@ -149,7 +152,6 @@
               <p aria-live="polite"><strong id="job-count">6</strong> jobs found</p>
             </div>
             <p id="company-filter" class="text-muted" hidden></p>
-            <p class="text-muted">The detail page previews the Frontend Developer role at Acme Corp.</p>
             <div class="jobs-list" id="job-list"></div>
             <template id="job-card-template">
               <article class="job-card">
@@ -203,8 +205,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="assets/js/companies-data.js"></script>
   <script src="assets/js/jobs-data.js"></script>
-  <script src="assets/js/jobs.js?v=20261107"></script>
+  <script src="assets/js/jobs.js?v=endterm-jobs"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore the Frontend Developer role at Acme Corp, review your skill match, and try the demo application form.">
-  <title>Frontend Developer at Acme Corp | Jobly</title>
+  <meta name="description" content="Explore a vacancy and try the Jobly demo application form.">
+  <title>Job Details | Jobly</title>
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,136 +49,139 @@
   </header>
 
   <main id="main-content">
-    <section class="page-hero" aria-labelledby="job-title">
+    <section class="section-block" id="job-not-found" hidden>
       <div class="container site-container">
-        <a class="text-link" href="jobs.html">← Back to jobs</a>
-        <div class="job-details-heading">
-          <div>
-            <p class="eyebrow">ACME CORP</p>
-            <h1 id="job-title">Frontend Developer</h1>
-            <p class="job-meta">
-              <span>Acme Corp</span>
-              <span>London, UK</span>
-              <span>Full-time</span>
-            </p>
-            <p class="mb-0">
-              <strong>£35,000–£45,000 per year</strong>
-            </p>
-          </div>
-          <span class="match-badge match-high">82% match</span>
-        </div>
-        <div class="job-actions">
-          <a class="btn btn-primary" href="#application">Apply now</a>
-          <button class="btn btn-secondary" type="button" id="save-job" aria-pressed="false">Save job</button>
-        </div>
+        <h1>Job not found</h1>
+        <p>This job link is invalid or the vacancy is no longer listed.</p>
+        <a class="btn btn-primary" href="jobs.html">Browse jobs</a>
       </div>
     </section>
-
-    <div class="section-block">
-      <div class="container site-container">
-        <div class="row g-4 jobs-layout">
-          <div class="col-lg-8">
-            <article class="job-details-panel" aria-labelledby="description-title">
-              <h2 id="description-title">About the role</h2>
-              <p>
-                Acme Corp builds accessible tools that help teams work together. We are looking for an early-career
-                Frontend Developer to turn designs into clear, responsive interfaces.
+    <noscript><p class="container site-container">Enable JavaScript to view this vacancy.</p></noscript>
+    <div id="job-content" hidden>
+      <section class="page-hero" aria-labelledby="job-title">
+        <div class="container site-container">
+          <a class="text-link" href="jobs.html">← Back to jobs</a>
+          <div class="job-details-heading">
+            <div>
+              <p class="eyebrow" id="detail-company"></p>
+              <h1 id="job-title"></h1>
+              <p class="job-meta">
+                <span id="detail-employer"></span>
+                <span id="detail-location"></span>
+                <span id="detail-type"></span>
               </p>
-              <p>You will work with designers and developers, receive feedback through code reviews, and gradually take ownership of small features.</p>
+              <p class="mb-0">
+                <strong id="detail-salary"></strong>
+              </p>
+            </div>
+            <span class="match-badge" id="detail-match"></span>
+          </div>
+          <p class="text-muted" id="legacy-job-link" hidden>This older link opens the original Acme vacancy. <a class="text-link" href="jobs.html">Browse all jobs</a>.</p>
+          <div class="job-actions">
+            <a class="btn btn-primary" href="#application">Apply now</a>
+            <button class="btn btn-secondary" type="button" id="save-job" aria-pressed="false">Save job</button>
+          </div>
+          <p class="text-danger mt-2" id="saved-job-error" role="status" hidden>Saved jobs are unavailable in this browser.</p>
+        </div>
+      </section>
 
-              <h3>Responsibilities</h3>
-              <ul>
-                <li>Build responsive pages and reusable UI components.</li>
-                <li>Translate design mockups into accessible HTML and CSS.</li>
-                <li>Use JavaScript and React to add interactive features.</li>
-                <li>Test layouts across browsers and screen sizes.</li>
-                <li>Collaborate with the team and participate in code reviews.</li>
-              </ul>
+      <div class="section-block">
+        <div class="container site-container">
+          <div class="row g-4 jobs-layout">
+            <div class="col-lg-8">
+              <article class="job-details-panel" aria-labelledby="description-title">
+                <h2 id="description-title">About the role</h2>
+                <div id="detail-description"></div>
+                <div id="job-responsibilities" hidden>
+                  <h3>Responsibilities</h3>
+                  <ul id="detail-responsibilities"></ul>
+                </div>
+                <h3>Requirements</h3>
+                <button class="btn btn-secondary mb-3 job-section-toggle" id="toggle-requirements" type="button" aria-controls="detail-skills" aria-expanded="true" hidden>Hide requirements</button>
+                <ul class="mb-0 job-section" id="detail-skills"></ul>
+              </article>
 
-              <h3>Requirements</h3>
-              <ul class="mb-0">
-                <li>Good knowledge of HTML, CSS and responsive design.</li>
-                <li>Basic JavaScript and React experience.</li>
-                <li>Familiarity with Git and GitHub.</li>
-                <li>Clear communication and willingness to learn.</li>
-                <li>A small portfolio of projects; coursework is welcome.</li>
-              </ul>
-            </article>
-
-            <section class="job-details-panel" id="application" aria-labelledby="application-title">
-              <h2 id="application-title">Apply for this role</h2>
-              <p class="text-muted">Demo form: your information and CV stay in your browser.</p>
-              <form id="application-form" class="application-form" method="post" aria-labelledby="application-title">
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label class="form-label" for="full-name">Full name</label>
-                    <input class="form-control" id="full-name" name="full-name" type="text" autocomplete="name" required>
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label" for="email">Email</label>
-                    <input class="form-control" id="email" name="email" type="email" autocomplete="email" required>
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label" for="phone">Phone</label>
-                    <input class="form-control" id="phone" name="phone" type="tel" autocomplete="tel" required>
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label" for="cover-letter">Cover letter</label>
-                    <textarea class="form-control" id="cover-letter" name="cover-letter" rows="5" placeholder="Tell us why you are interested in this role." required></textarea>
-                  </div>
-                  <div class="col-12">
-                    <label class="form-label" for="cv">Upload CV</label>
-                    <input class="form-control" id="cv" name="cv" type="file" accept=".pdf,.doc,.docx" aria-describedby="cv-help" required>
-                    <p class="form-text mb-0" id="cv-help">Choose a PDF, DOC or DOCX file.</p>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-check">
-                      <input class="form-check-input" id="consent" name="consent" type="checkbox" required>
-                      <label class="form-check-label" for="consent">I agree to the use of my details to review this application.</label>
+              <section class="job-details-panel" id="application" aria-labelledby="application-title">
+                <h2 id="application-title">Apply for this role</h2>
+                <p class="text-muted">Demo form: your information and CV stay in your browser.</p>
+                <form id="application-form" class="application-form" method="post" novalidate aria-labelledby="application-title">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label" for="full-name">Full name</label>
+                      <input class="form-control" id="full-name" name="full-name" type="text" autocomplete="name" aria-describedby="full-name-error" required>
+                      <p class="invalid-feedback" id="full-name-error"></p>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label" for="email">Email</label>
+                      <input class="form-control" id="email" name="email" type="email" autocomplete="email" aria-describedby="email-error" required>
+                      <p class="invalid-feedback" id="email-error"></p>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="phone">Phone</label>
+                      <input class="form-control" id="phone" name="phone" type="tel" autocomplete="tel" aria-describedby="phone-error" required>
+                      <p class="invalid-feedback" id="phone-error"></p>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="cover-letter">Cover letter</label>
+                      <textarea class="form-control" id="cover-letter" name="cover-letter" rows="5" placeholder="Tell us why you are interested in this role." aria-describedby="cover-letter-error" required></textarea>
+                      <p class="invalid-feedback" id="cover-letter-error"></p>
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label" for="cv">Upload CV</label>
+                      <input class="form-control" id="cv" name="cv" type="file" accept=".pdf,.doc,.docx" aria-describedby="cv-help cv-error" required>
+                      <p class="invalid-feedback" id="cv-error"></p>
+                      <p class="form-text mb-0" id="cv-help">Choose a PDF, DOC or DOCX file up to 5 MB.</p>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" id="consent" name="consent" type="checkbox" aria-describedby="consent-error" required>
+                        <label class="form-check-label" for="consent">I understand this is a demo and my application will not be sent.</label>
+                        <p class="invalid-feedback" id="consent-error"></p>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary" type="submit" disabled>Submit application</button>
                     </div>
                   </div>
-                  <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Submit application</button>
-                  </div>
+                </form>
+                <div id="application-message" class="alert alert-success mt-3 mb-0" role="status" tabindex="-1" hidden>
+                  Demo application completed. No information or CV was sent.
                 </div>
-              </form>
-              <div id="application-message" class="alert alert-success mt-3 mb-0" role="status" tabindex="-1" hidden>
-                Demo application completed. No information or CV was sent.
-              </div>
-            </section>
-          </div>
+              </section>
+            </div>
 
-          <aside class="col-lg-4" aria-labelledby="skill-match-title">
-            <section class="job-details-panel">
-              <h2 id="skill-match-title">Your skill match</h2>
-              <p>
-                <span class="match-badge match-high">82% match</span>
-              </p>
-              <p class="text-muted">This example profile is a strong starting point for the role.</p>
-              <h3>Matched skills</h3>
-              <div class="job-skill-list">
-                <span class="skill-chip skill-matched">HTML &amp; CSS</span>
-                <span class="skill-chip skill-matched">React</span>
-                <span class="skill-chip skill-matched">Communication</span>
-                <span class="skill-chip skill-matched">Responsive Design</span>
-              </div>
-              <h3>Skills to improve</h3>
-              <div class="job-skill-list">
-                <span class="skill-chip skill-gap">JavaScript</span>
-              </div>
-              <h3>Missing skills</h3>
-              <div class="job-skill-list">
-                <span class="skill-chip skill-gap">Git &amp; GitHub</span>
-              </div>
-              <h3>Career Roadmap</h3>
-              <ol>
-                <li>Practice Git branches and pull requests.</li>
-                <li>Build a small project with asynchronous JavaScript.</li>
-                <li>Add the project to your portfolio before applying.</li>
-              </ol>
-              <a class="text-link" href="career-map.html">View Career Map</a>
-            </section>
-          </aside>
+            <aside class="col-lg-4" aria-labelledby="skill-match-title">
+              <section class="job-details-panel">
+                <h2 id="skill-match-title">Example skill match</h2>
+                <p><span class="match-badge" id="detail-match-example"></span></p>
+                <p class="text-muted">This score is for the sample profile.</p>
+                <div id="acme-example-guidance" hidden>
+                <h3>Matched skills</h3>
+                <div class="job-skill-list">
+                  <span class="skill-chip skill-matched">HTML &amp; CSS</span>
+                  <span class="skill-chip skill-matched">React</span>
+                  <span class="skill-chip skill-matched">Communication</span>
+                  <span class="skill-chip skill-matched">Responsive Design</span>
+                </div>
+                <h3>Skills to improve</h3>
+                <div class="job-skill-list">
+                  <span class="skill-chip skill-gap">JavaScript</span>
+                </div>
+                <h3>Missing skills</h3>
+                <div class="job-skill-list">
+                  <span class="skill-chip skill-gap">Git &amp; GitHub</span>
+                </div>
+                <h3>Career Roadmap</h3>
+                <ol>
+                  <li>Practice Git branches and pull requests.</li>
+                  <li>Build a small project with asynchronous JavaScript.</li>
+                  <li>Add the project to your portfolio before applying.</li>
+                </ol>
+                </div>
+                <a class="text-link" id="job-career-link" href="career-map.html">View Career Map</a>
+              </section>
+            </aside>
+          </div>
         </div>
       </div>
     </div>
@@ -203,6 +206,11 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/jobs.js?v=20261004"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/companies-data.js"></script>
+  <script src="assets/js/jobs-data.js"></script>
+  <script src="assets/js/saved-jobs.js"></script>
+  <script src="assets/js/jobs.js?v=endterm-jobs"></script>
+  <script src="assets/js/job-details.js"></script>
 </body>
 </html>

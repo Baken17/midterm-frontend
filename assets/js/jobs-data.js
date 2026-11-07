@@ -9,7 +9,9 @@ window.JoblyJobs = [
     description: "Build accessible interfaces and learn alongside an experienced frontend team.",
     skills: ["React", "CSS", "JavaScript", "Git", "Responsive Design"],
     salary: "£35,000–£45,000 / year",
-    exampleMatch: 82
+    exampleMatch: 82,
+    about: ["Acme Corp builds accessible tools that help teams work together. We are looking for an early-career Frontend Developer to turn designs into clear, responsive interfaces.", "You will work with designers and developers, receive feedback through code reviews, and gradually take ownership of small features."],
+    responsibilities: ["Build responsive pages and reusable UI components.", "Translate design mockups into accessible HTML and CSS.", "Use JavaScript and React to add interactive features.", "Test layouts across browsers and screen sizes.", "Collaborate with the team and participate in code reviews."]
   },
   {
     id: "data-analyst",
@@ -82,3 +84,15 @@ function findJobById(id) {
 
   return null;
 }
+
+window.jobDetailsUrl = function (id) {
+  return "job-details.html?id=" + encodeURIComponent(id);
+};
+
+window.getJobCompanyName = function (id) {
+  const companies = window.JoblyCompanies || [];
+  const company = companies.find(function (item) {
+    return item.id === id;
+  });
+  return company ? company.name : "";
+};

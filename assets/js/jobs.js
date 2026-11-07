@@ -18,51 +18,47 @@ if (searchForm && filterForm) {
   const searchInput = document.querySelector("#job-search");
   const locationInput = document.querySelector("#location-search");
   const jobList = document.querySelector("#job-list");
-const template = document.querySelector("#job-card-template");
+  const template = document.querySelector("#job-card-template");
 
-for (const job of window.JoblyJobs) {
-  const card = template.content.firstElementChild.cloneNode(true);
+  for (const job of window.JoblyJobs) {
+    const card = template.content.firstElementChild.cloneNode(true);
 
-  const company = window.JoblyCompanies.find(function (item) {
-    return item.id === job.companyId;
-  });
+    const company = window.JoblyCompanies.find(function (item) {
+      return item.id === job.companyId;
+    });
 
-  card.dataset.company = job.companyId;
-  card.dataset.location = job.location.split(",")[0].trim().toLowerCase();
-  card.dataset.type = job.type.toLowerCase();
-  card.dataset.category = job.category;
+    card.dataset.company = job.companyId;
+    card.dataset.location = job.location.split(",")[0].trim().toLowerCase();
+    card.dataset.type = job.type.toLowerCase();
+    card.dataset.category = job.category;
 
-  card.querySelector(".company-logo").src =
-    "assets/images/company-logos/" + job.companyId + ".svg";
+    card.querySelector(".company-logo").src =
+      "assets/images/company-logos/" + job.companyId + ".svg";
 
-  const badge = card.querySelector(".match-badge");
-  badge.textContent = job.exampleMatch + "% match";
-  badge.classList.add(job.exampleMatch >= 80 ? "match-high" : "match-medium");
+    const badge = card.querySelector(".match-badge");
+    badge.textContent = job.exampleMatch + "% match";
+    badge.classList.add(job.exampleMatch >= 80 ? "match-high" : "match-medium");
 
-  card.querySelector(".company-name").textContent = company ? company.name : job.companyId;
-  card.querySelector("h3").textContent = job.title;
-  card.querySelector(".job-location").textContent = job.location;
-  card.querySelector(".job-type").textContent = job.type;
-  card.querySelector(".job-summary").textContent = job.description;
-  card.querySelector(".job-salary").textContent = job.salary;
+    card.querySelector(".company-name").textContent = company ? company.name : job.companyId;
+    card.querySelector("h3").textContent = job.title;
+    card.querySelector(".job-location").textContent = job.location;
+    card.querySelector(".job-type").textContent = job.type;
+    card.querySelector(".job-summary").textContent = job.description;
+    card.querySelector(".job-salary").textContent = job.salary;
 
-  for (const skill of job.skills) {
-    const tag = document.createElement("span");
-    tag.textContent = skill;
-    card.querySelector(".card-skills").append(tag);
-  }
+    for (const skill of job.skills) {
+      const tag = document.createElement("span");
+      tag.textContent = skill;
+      card.querySelector(".card-skills").append(tag);
+    }
 
-  const link = card.querySelector(".job-link");
-  if (job.id === "frontend-developer") {
-    link.href = "job-details.html";
+    const link = card.querySelector(".job-link");
+    link.href = jobDetailsUrl(job.id);
     link.textContent = "View details";
-  } else {
-    link.href = "jobs.html?q=" + encodeURIComponent(job.title);
-    link.textContent = "View in jobs";
-  }
+    link.setAttribute("aria-label", "View details for " + job.title);
 
-  jobList.append(card);
-}
+    jobList.append(card);
+  }
   const jobCards = document.querySelectorAll(".jobs-list .job-card");
   const resultCount = document.querySelector("#job-count");
   const emptyMessage = document.querySelector("#jobs-empty");
@@ -148,32 +144,31 @@ for (const job of window.JoblyJobs) {
   filterJobs();
 }
 
-const saveButton = document.querySelector("#save-job");
-if (saveButton) {
-  let isJobSaved = false;
+if (window.jQuery) {
+  const $ = window.jQuery;
+  $("#toggle-filters, #toggle-requirements").prop("hidden", false).on("click", function () {
+    const button = $(this);
+    const panel = button.closest(".jobs-filters, .job-details-panel").find(".job-section");
+    const open = button.attr("aria-expanded") !== "true";
+    const label = this.id === "toggle-filters" ? "filters" : "requirements";
+    const duration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 180;
 
-  saveButton.addEventListener("click", function () {
-    isJobSaved = !isJobSaved;
-    saveButton.setAttribute("aria-pressed", String(isJobSaved));
-    if (isJobSaved) {
-      saveButton.textContent = "Job saved ✓";
+    button.attr("aria-expanded", String(open));
+    button.text((open ? "Hide " : "Show ") + label);
+    panel.stop(true, true);
+    if (open) {
+      panel.slideDown(duration);
     } else {
-      saveButton.textContent = "Save job";
+      panel.slideUp(duration);
     }
   });
-}
 
-const applicationForm = document.querySelector("#application-form");
-if (applicationForm) {
-  const applicationMessage = document.querySelector("#application-message");
-
-  applicationForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    applicationMessage.hidden = false;
-    applicationMessage.focus();
-  });
-
-  applicationForm.addEventListener("input", function () {
-    applicationMessage.hidden = true;
+  $(".job-section").on("keydown", function (event) {
+    if (event.key !== "Escape") return;
+    const button = $(this).closest(".jobs-filters, .job-details-panel").find(".job-section-toggle");
+    if (button.attr("aria-expanded") === "true") {
+      button.trigger("click");
+      button.trigger("focus");
+    }
   });
 }
