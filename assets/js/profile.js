@@ -1,26 +1,62 @@
 "use strict";
 
+const PROFILE_STORAGE_KEY = "jobly.profile";
+
 const defaultProfile = {
   name: "Alex Johnson",
   role: "Computer Science Graduate",
   email: "alex.johnson@email.com",
   direction: "Frontend Development",
   location: "London, UK (Open to remote)",
-  skills: ["HTML", "CSS", "JavaScript", "React", "Responsive Design"]
+  skills: ["HTML", "CSS", "Responsive Design"]
 };
+
+function cloneDefaultProfile() {
+  return {
+    ...defaultProfile,
+    skills: [...defaultProfile.skills]
+  };
+}
+
+function isValidProfileObject(data) {
+  return (
+    data !== null &&
+    typeof data === "object" &&
+    typeof data.name === "string" &&
+    typeof data.role === "string" &&
+    typeof data.email === "string" &&
+    typeof data.direction === "string" &&
+    typeof data.location === "string" &&
+    Array.isArray(data.skills)
+  );
+}
 
 function getStoredProfile() {
   try {
-    const stored = JSON.parse(localStorage.getItem("jobly.profile"));
-    return stored || defaultProfile;
+    const raw = localStorage.getItem(PROFILE_STORAGE_KEY);
+    if (!raw) return cloneDefaultProfile();
+    const parsed = JSON.parse(raw);
+    if (!isValidProfileObject(parsed)) {
+      return cloneDefaultProfile();
+    }
+    return parsed;
   } catch {
-    return defaultProfile;
+    return cloneDefaultProfile();
   }
 }
 
 function saveStoredProfile(profile) {
   try {
-    localStorage.setItem("jobly.profile", JSON.stringify(profile));
+    localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profile));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function clearStoredProfile() {
+  try {
+    localStorage.removeItem(PROFILE_STORAGE_KEY);
     return true;
   } catch {
     return false;
@@ -38,9 +74,17 @@ function getInitials(fullName) {
 
 function removeUserSkill(skillName) {
   const profile = getStoredProfile();
-  profile.skills = profile.skills.filter(s => s.toLowerCase() !== skillName.toLowerCase());
+  profile.skills = profile.skills.filter((s) => s.toLowerCase() !== skillName.toLowerCase());
   saveStoredProfile(profile);
   renderProfile();
+}
+
+function showStatusMessage(text) {
+  const updateMessage = document.querySelector("#profile-update-message");
+  if (!updateMessage) return;
+  updateMessage.textContent = text;
+  updateMessage.hidden = false;
+  updateMessage.focus();
 }
 
 function renderProfile() {
@@ -188,10 +232,24 @@ function renderSavedJobs() {
 document.addEventListener("DOMContentLoaded", function () {
   renderProfile();
 
+  const actionsContainer = document.querySelector(".profile-actions");
+  if (actionsContainer && !document.querySelector("#reset-profile-button")) {
+    const resetBtn = document.createElement("button");
+    resetBtn.id = "reset-profile-button";
+    resetBtn.type = "button";
+    resetBtn.className = "btn btn-secondary";
+    resetBtn.textContent = "Reset Profile";
+    resetBtn.addEventListener("click", function () {
+      clearStoredProfile();
+      renderProfile();
+      showStatusMessage("Saved profile cleared and reset to defaults.");
+    });
+    actionsContainer.append(resetBtn);
+  }
+
   const profileForm = document.querySelector("#edit-profile-form");
   const modalElement = document.querySelector("#editProfileModal");
   const editButton = document.querySelector("#edit-profile-button");
-  const updateMessage = document.querySelector("#profile-update-message");
 
   if (profileForm && modalElement && editButton) {
     function openModal() {
@@ -235,6 +293,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     profileForm.addEventListener("submit", function (event) {
       event.preventDefault();
+      if (!profileForm.checkValidity()) {
+        profileForm.reportValidity();
+        return;
+      }
+
       const name = profileForm.elements.name.value.trim();
       const role = profileForm.elements.role.value.trim();
       const email = profileForm.elements.email.value.trim();
@@ -252,14 +315,10 @@ document.addEventListener("DOMContentLoaded", function () {
         location
       };
 
-      saveStoredProfile(updated);
+      const saved = saveStoredProfile(updated);
       renderProfile();
       closeModal();
-
-      if (updateMessage) {
-        updateMessage.hidden = false;
-        updateMessage.focus();
-      }
+      showStatusMessage(saved ? "Profile updated and saved." : "Profile updated (storage unavailable).");
     });
   }
 });
