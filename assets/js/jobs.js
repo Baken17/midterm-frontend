@@ -35,10 +35,10 @@ if (searchForm && filterForm) {
       "assets/images/company-logos/" + job.companyId + ".svg";
 
     const badge = card.querySelector(".match-badge");
-    badge.textContent = job.exampleMatch + "% match";
+    badge.textContent = job.getMatchLabel();
     badge.classList.add(job.exampleMatch >= 80 ? "match-high" : "match-medium");
 
-    card.querySelector(".company-name").textContent = company ? company.name : job.companyId;
+    card.querySelector(".company-name").textContent = job.getCompanyName();
     card.querySelector("h3").textContent = job.title;
     card.querySelector(".job-location").textContent = job.location;
     card.querySelector(".job-type").textContent = job.type;
@@ -86,6 +86,7 @@ if (searchForm && filterForm) {
     const locations = getSelectedValues("location");
     const categories = getSelectedValues("category");
     const jobTypes = getSelectedValues("type");
+    const counts = {};
     let visibleCount = 0;
     let companyName = "";
 
@@ -109,6 +110,8 @@ if (searchForm && filterForm) {
       card.hidden = !isVisible;
       if (isVisible) {
         visibleCount += 1;
+        const type = card.dataset.type;
+        counts[type] = (counts[type] || 0) + 1;
       }
       if (card.dataset.company === companyFilter) {
         companyName = company;
@@ -116,6 +119,14 @@ if (searchForm && filterForm) {
     }
 
     resultCount.textContent = visibleCount;
+    for (const row of document.querySelectorAll("#job-type-chart li")) {
+  const count = counts[row.dataset.type] || 0;
+  row.querySelector("strong").textContent = count;
+
+  const meter = row.querySelector("meter");
+  meter.max = Math.max(1, visibleCount);
+  meter.value = count;
+}
     emptyMessage.hidden = visibleCount !== 0;
     companyMessage.hidden = companyFilter === "";
     companyMessage.textContent = "Showing jobs at " + companyName + ".";
