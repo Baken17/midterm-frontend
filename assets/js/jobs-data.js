@@ -20,7 +20,7 @@ window.JoblyJobs = [
     type: "Full-time",
     category: "development",
     description: "Build accessible interfaces and learn alongside an experienced frontend team.",
-    skills: ["React", "CSS", "JavaScript", "Git", "Responsive Design"],
+    skills: ["HTML", "CSS", "JavaScript", "Git", "Responsive Design"],
     salary: "£35,000–£45,000 / year",
     exampleMatch: 82,
     about: ["Acme Corp builds accessible tools that help teams work together. We are looking for an early-career Frontend Developer to turn designs into clear, responsive interfaces.", "You will work with designers and developers, receive feedback through code reviews, and gradually take ownership of small features."],
