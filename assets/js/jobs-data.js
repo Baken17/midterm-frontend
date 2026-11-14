@@ -1,3 +1,16 @@
+class Job {
+  constructor(data) {
+    Object.assign(this, data);
+  }
+
+  getCompanyName() {
+    return getJobCompanyName(this.companyId) || this.companyId;
+  }
+
+  getMatchLabel() {
+    return this.exampleMatch + "% match";
+  }
+}
 window.JoblyJobs = [
   {
     id: "frontend-developer",
@@ -73,7 +86,9 @@ window.JoblyJobs = [
     salary: "£28,000–£36,000 / year",
     exampleMatch: 71
   }
-];
+].map(function (data) {
+  return new Job(data);
+});
 
 function findJobById(id) {
   for (const job of window.JoblyJobs) {

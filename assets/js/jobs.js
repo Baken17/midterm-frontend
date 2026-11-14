@@ -22,7 +22,6 @@ if (searchForm && filterForm) {
 
   for (const job of window.JoblyJobs) {
     const card = template.content.firstElementChild.cloneNode(true);
-
     const company = window.JoblyCompanies.find(function (item) {
       return item.id === job.companyId;
     });
