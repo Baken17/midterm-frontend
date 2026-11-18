@@ -6,6 +6,41 @@ Jobly is a responsive, multi-page job search website for early-career profession
 
 [Open Jobly on GitHub Pages](https://baken17.github.io/midterm-frontend/)
 
+## Final — participant 1 (Home and Companies)
+
+One new feature: an independent remote-employer section on Companies.
+`assets/js/companies-api.js` uses `fetch` and `async/await` to request
+`https://remotive.com/api/remote-jobs?limit=6`, reads the JSON `jobs` array,
+and creates up to six distinct employer cards using DOM methods and `textContent`.
+Cards show the employer, an opening, location restrictions, and the original Remotive link.
+The existing sample directory, filters, jQuery details and Jobs links are unchanged.
+
+API documentation: https://github.com/remotive-com/remote-jobs-api
+No API key, backend, dependencies or build step is needed. Internet access is required.
+Remotive listings are delayed by 24 hours. Attribution and original links are displayed.
+A six-hour sessionStorage cache reduces repeated requests in the same browser tab;
+avoid repeated refreshes/new tabs during demonstrations (provider recommends at most
+four requests per day and blocks excessive requests). This cache is an implementation
+detail, not the team's required localStorage user-data feature.
+
+The block handles loading, success, empty data, failed HTTP/network requests,
+invalid responses and a 15-second timeout. Failed/empty requests show a retry button.
+It never substitutes sample companies for failed API results.
+
+### Check participant 1 final
+
+1. Serve the folder locally (IntelliJ preview or `python3 -m http.server 8000`).
+2. Open Companies and scroll to “Employers offering remote work”.
+3. Verify employer cards and their Remotive links; refresh to check cached results.
+4. To test a new request, clear the `jobly-remote-employers` sessionStorage entry.
+5. With the cache cleared, test offline mode, then restore connectivity and retry.
+6. With a mocked API response `{ "jobs": [] }`, verify the empty state.
+7. Recheck the six sample cards, filters, expandable details and links to Jobs.
+
+For defence: `loadCompanies` retrieves JSON, `renderCompanies` builds DOM cards,
+and `showState` updates loading/result/error feedback. `try/catch/finally` handles
+failures and cleans up the timeout. This section documents participant 1 only; it does not certify the complete team's final requirements.
+
 ## Endterm — participant 1 (Home and Companies)
 
 Companies now renders cards from `assets/js/companies-data.js`. Two arrays
