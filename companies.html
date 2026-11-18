@@ -92,6 +92,18 @@
       </div>
     </section>
 
+    <section class="section-block" aria-labelledby="remote-companies-title">
+      <div class="container site-container">
+        <p class="eyebrow">REMOTE OPPORTUNITIES</p>
+        <h2 id="remote-companies-title">Employers offering remote work</h2>
+        <p>Explore employers through their remote openings. Source: <a href="https://remotive.com">Remotive</a>. Listings are delayed by 24 hours.</p>
+        <p id="remote-companies-status" role="status" aria-live="polite">Loading employers…</p>
+        <button id="retry-remote-companies" class="btn btn-secondary mb-3" type="button" hidden>Try again</button>
+        <div id="remote-companies-grid" class="row g-4" aria-busy="true"></div>
+        <noscript><p>Enable JavaScript to load remote employers.</p></noscript>
+      </div>
+    </section>
+
     <section class="section-block employer-note" aria-labelledby="employer-note-title">
       <div class="container site-container">
         <div class="employer-note-inner">
@@ -126,5 +138,6 @@
   <script src="assets/js/theme.js"></script>
   <script src="assets/js/companies-data.js"></script>
   <script src="assets/js/main.js?v=20261106"></script>
+  <script src="assets/js/companies-api.js"></script>
 </body>
 </html>
